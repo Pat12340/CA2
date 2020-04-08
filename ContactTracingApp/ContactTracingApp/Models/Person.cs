@@ -7,5 +7,6 @@ namespace ContactTracingApp.Models
 {
     public class Person
     {
+        public int id { get; set; }
     }
 }
