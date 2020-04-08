@@ -15,16 +15,17 @@ namespace ContactTracingApp.Models
         [Required]
         public string PersonId { get; set; }
         [Required]
-        public string ContactFName { get; set; }
+        public string FName { get; set; }
         [Required]
-        public string ContactLName { get; set; }
+        public string LName { get; set; }
         [Required]
-        public string ContactMobile { get; set; }
-        public string ContactEmail { get; set; }
+        public string Mobile { get; set; }
+        public string Email { get; set; }
         public string LastDateContacted { get; set; }
         public int DistanceKept { get; set; }
         public int TimeSpent { get; set;  }
 
-    }
+        public bool testBrach { get; set; }
 
+    }
 }
