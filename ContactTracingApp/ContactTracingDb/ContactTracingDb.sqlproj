@@ -59,17 +59,15 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
     <Folder Include="Publish Profiles\" />
-    <Folder Include="PublishedProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Paerson.sql" />
     <Build Include="dbo\Tables\Contact.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Publish Profiles\ContactTracingDb.publish.xml" />
-    <None Include="PublishedProfiles\ContactTracingDb.publish.xml" />
+    <RefactorLog Include="ContactTracingDb.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <RefactorLog Include="ContactTracingDb.refactorlog" />
+    <None Include="Publish Profiles\ContactTracingDb.publish.xml" />
   </ItemGroup>
 </Project>

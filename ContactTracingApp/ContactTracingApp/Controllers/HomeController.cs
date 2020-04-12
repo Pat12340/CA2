@@ -77,11 +77,38 @@ namespace ContactTracingApp.Controllers
                     model.DistanceKept, 
                     model.TimeSpent);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("MyContacts");
             }
 
             return View();
         }
+
+        public ActionResult MyContacts()
+        {
+            ViewBag.Message = "My Contacts List";
+
+            var data = LoadContact();
+
+            List<Contact> contacts = new List<Contact>();
+            foreach(var row in data)
+            {
+                contacts.Add(new Contact
+                {
+                    ContactId = row.ContactId,
+                    FirstName = row.FirstName,
+                    LastName = row.LastName,
+                    PersonId = row.PersonId,
+                    DateMet = row.DateMet,
+                    Mobile = row.Mobile,
+                    Email = row.Email,
+                    DistanceKept = row.DistanceKept,
+                    TimeSpent = row.TimeSpent
+                });
+            }
+
+            return View(contacts);
+        }
+
 
     }
 }

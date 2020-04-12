@@ -8,11 +8,14 @@ namespace ContactTracingApp.Models
 {
     public class Contact
     {
+        // Add Unit test
 
         // This should be generated when its submitted 
         [Key]
         public int ContactId { get; set; }
 
+
+        // Add a date picker field 
         [Display(Name = "When was the last date you met?")]
         public DateTime DateMet { get; set; }
 
@@ -36,6 +39,7 @@ namespace ContactTracingApp.Models
         [Display(Name = "Email Address")]
         public string Email { get; set; }
 
+        // Add validation for negative for both below
         [Display(Name = "Distance Kept Apart - Approx Meters")]
         public int DistanceKept { get; set; }
 
