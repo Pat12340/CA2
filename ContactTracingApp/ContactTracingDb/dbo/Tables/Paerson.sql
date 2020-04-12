@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Paerson]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [FName] NVARCHAR(50) NOT NULL, 
+    [LName] NVARCHAR(50) NOT NULL, 
+    [Email] NVARCHAR(100) NOT NULL, 
+    [Phone] NCHAR(10) NOT NULL, 
+    [Dob] DATETIME NULL
+)

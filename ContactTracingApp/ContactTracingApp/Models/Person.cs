@@ -13,19 +13,31 @@ namespace ContactTracingApp.Models
         public int id { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
         public string FName { get; set; }
 
         [Required]
+        [Display(Name = "Last Name")]
         public string LName { get; set; }
 
         [Required]
+        [Range(1, 1000000000, ErrorMessage ="The Phone number must be at least 9 digits.")]
         public int Phone { get; set; }
 
         [Required]
-        public string Email { get; set; }
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email Address")]
+        public string Email{ get; set; }
+
+        [Display(Name = "Confirm Email")]
+        [Compare("Email", ErrorMessage = "The Email and Confirm Email must match")]
+        public string ConfirmEmailAddress { get; set; }
 
         [Required]
-        public DateTime Dob { get; set; }
+        [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{Dob:dd/MM/yyyy}")]
+        public Nullable<System.DateTime> Dob { get; set; }
+
         //comment
 
     }

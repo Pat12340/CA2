@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactTracingApp", "ContactTracingApp\ContactTracingApp.csproj", "{87C2D4AE-D986-46A7-B642-F3F82EB371D9}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ContactTracingDb", "ContactTracingDb\ContactTracingDb.sqlproj", "{C193FDA3-22CF-4E6F-80B5-E669BC972521}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{40580C93-BED0-4D86-BA85-FA6AB599707A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,16 @@ Global
 		{87C2D4AE-D986-46A7-B642-F3F82EB371D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87C2D4AE-D986-46A7-B642-F3F82EB371D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87C2D4AE-D986-46A7-B642-F3F82EB371D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C193FDA3-22CF-4E6F-80B5-E669BC972521}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C193FDA3-22CF-4E6F-80B5-E669BC972521}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C193FDA3-22CF-4E6F-80B5-E669BC972521}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C193FDA3-22CF-4E6F-80B5-E669BC972521}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C193FDA3-22CF-4E6F-80B5-E669BC972521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C193FDA3-22CF-4E6F-80B5-E669BC972521}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{40580C93-BED0-4D86-BA85-FA6AB599707A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40580C93-BED0-4D86-BA85-FA6AB599707A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40580C93-BED0-4D86-BA85-FA6AB599707A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40580C93-BED0-4D86-BA85-FA6AB599707A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
