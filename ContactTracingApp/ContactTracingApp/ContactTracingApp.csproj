@@ -172,7 +172,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\Home\ViewPeople.cshtml" />
-    <Content Include="Views\Home\myContacts.cshtml" />
+    <Content Include="Views\Home\addNewContacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

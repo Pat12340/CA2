@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using static DataLibrary.BusinessLogic.PersonProcessor;
+using static DataLibrary.BusinessLogic.ContactProcessor;
 
 namespace ContactTracingApp.Controllers
 {
@@ -15,19 +16,6 @@ namespace ContactTracingApp.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Contact Tracing App";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
         public ActionResult ViewPeople()
         {
             ViewBag.Message = "Person List";
@@ -67,9 +55,30 @@ namespace ContactTracingApp.Controllers
             return View();
 
         }
-        public ActionResult myContacts()
+        public ActionResult addNewContacts()
         {
-            ViewBag.Message = "Your contacts page.";
+            ViewBag.Message = "Add a new contact.";
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult addNewContacts(Contact model)
+        {
+            if (ModelState.IsValid)
+            {
+               int recordsCreated = CreateContact(model.ContactId,
+                    model.FirstName, 
+                    model.LastName, 
+                    model.DateMet, 
+                    model.PersonId, 
+                    model.Mobile, 
+                    model.Email, 
+                    model.DistanceKept, 
+                    model.TimeSpent);
+
+                return RedirectToAction("Index");
+            }
 
             return View();
         }

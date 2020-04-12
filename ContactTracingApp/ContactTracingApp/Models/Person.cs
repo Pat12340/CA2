@@ -31,9 +31,6 @@ namespace ContactTracingApp.Models
 
         [Display(Name = "Confirm Email")]
         [Compare("Email", ErrorMessage = "The Email and Confirm Email must match")]
-
-        // Check if ConfirmEmailAddress matches Emials
-        // Or we can remove this field
         public string ConfirmEmailAddress { get; set; }
 
 
@@ -45,6 +42,17 @@ namespace ContactTracingApp.Models
         //comment
         // should we add in a password field for login purposes?
         //
+/*
+        [Display(Name ="Password")]
+        [Required(ErrorMessage ="You must have a password")]
+        [DataType(DataType.Password)]
+        [StringLength(100, MinimumLength =10, ErrorMessage ="You must provide a long enough password.")]
+        public string Password { get; set; }
+
+        [Display(Name ="Confirm Password")]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage ="Your passwords do not match")]
+        public string ConfirmPassword { get; set; }*/
 
     }
 }
