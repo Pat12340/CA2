@@ -2,11 +2,11 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Contact Tracing App</h1>
-    <p class="lead">Create a profile and begin adding Contacts. </p>
-    <p><a href="~/Views/Home/SignUp.cshtml" class="btn btn-primary btn-lg">Sign Up &raquo;</a></p>
-</div>
+    <div class="jumbotron">
+        <h1>Contact Tracing App</h1>
+        <p class="lead">Create a profile and begin adding Contacts. </p>
+        <button class="btn btn-primary btn-lg">@Html.ActionLink("Sign Up", "SignUp", "Home")</button>
+    </div>
 
 <div class="row">
     <div class="col-md-4">
