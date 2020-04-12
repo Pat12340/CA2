@@ -17,7 +17,7 @@ namespace ContactTracingApp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Contact Tracing App";
 
             return View();
         }
@@ -65,6 +65,14 @@ namespace ContactTracingApp.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+
         }
+        public ActionResult myContacts()
+        {
+            ViewBag.Message = "Your contacts page.";
+
+            return View();
+        }
+
     }
 }

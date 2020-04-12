@@ -31,7 +31,11 @@ namespace ContactTracingApp.Models
 
         [Display(Name = "Confirm Email")]
         [Compare("Email", ErrorMessage = "The Email and Confirm Email must match")]
+
+        // Check if ConfirmEmailAddress matches Emials
+        // Or we can remove this field
         public string ConfirmEmailAddress { get; set; }
+
 
         [Required]
         [Display(Name = "Date of Birth")]
@@ -39,6 +43,8 @@ namespace ContactTracingApp.Models
         public Nullable<System.DateTime> Dob { get; set; }
 
         //comment
+        // should we add in a password field for login purposes?
+        //
 
     }
 }

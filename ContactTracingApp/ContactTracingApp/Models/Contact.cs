@@ -25,7 +25,5 @@ namespace ContactTracingApp.Models
         public int DistanceKept { get; set; }
         public int TimeSpent { get; set;  }
 
-        public bool testBrach { get; set; }
-
     }
 }
