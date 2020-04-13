@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using static DataLibrary.BusinessLogic.PersonProcessor;
+using static DataLibrary.BusinessLogic.ContactProcessor;
 
 namespace ContactTracingApp.Controllers
 {
@@ -15,19 +16,6 @@ namespace ContactTracingApp.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
         public ActionResult ViewPeople()
         {
             ViewBag.Message = "Person List";
@@ -65,6 +53,62 @@ namespace ContactTracingApp.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+
         }
+        public ActionResult addNewContacts()
+        {
+            ViewBag.Message = "Add a new contact.";
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult addNewContacts(Contact model)
+        {
+            if (ModelState.IsValid)
+            {
+               int recordsCreated = CreateContact(model.ContactId,
+                    model.FirstName, 
+                    model.LastName, 
+                    model.DateMet, 
+                    model.PersonId, 
+                    model.Mobile, 
+                    model.Email, 
+                    model.DistanceKept, 
+                    model.TimeSpent);
+
+                return RedirectToAction("MyContacts");
+            }
+
+            return View();
+        }
+
+        public ActionResult MyContacts()
+        {
+            ViewBag.Message = "My Contacts List";
+
+            var data = LoadContact();
+
+            List<Contact> contacts = new List<Contact>();
+            foreach(var row in data)
+            {
+                contacts.Add(new Contact
+                {
+                    ContactId = row.ContactId,
+                    FirstName = row.FirstName,
+                    LastName = row.LastName,
+                    PersonId = row.PersonId,
+                    DateMet = row.DateMet,
+                    Mobile = row.Mobile,
+                    Email = row.Email,
+                    DistanceKept = row.DistanceKept,
+                    TimeSpent = row.TimeSpent
+                });
+            }
+
+            return View(contacts);
+        }
+
+
     }
 }

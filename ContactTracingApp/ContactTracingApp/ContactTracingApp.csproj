@@ -172,6 +172,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\Home\ViewPeople.cshtml" />
+    <Content Include="Views\Home\addNewContacts.cshtml" />
+    <Content Include="Views\Home\MyContacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

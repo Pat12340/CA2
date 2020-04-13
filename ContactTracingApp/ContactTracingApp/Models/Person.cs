@@ -33,12 +33,26 @@ namespace ContactTracingApp.Models
         [Compare("Email", ErrorMessage = "The Email and Confirm Email must match")]
         public string ConfirmEmailAddress { get; set; }
 
+
         [Required]
         [Display(Name = "Date of Birth")]
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{Dob:dd/MM/yyyy}")]
         public Nullable<System.DateTime> Dob { get; set; }
 
         //comment
+        // should we add in a password field for login purposes?
+        //
+/*
+        [Display(Name ="Password")]
+        [Required(ErrorMessage ="You must have a password")]
+        [DataType(DataType.Password)]
+        [StringLength(100, MinimumLength =10, ErrorMessage ="You must provide a long enough password.")]
+        public string Password { get; set; }
+
+        [Display(Name ="Confirm Password")]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage ="Your passwords do not match")]
+        public string ConfirmPassword { get; set; }*/
 
     }
 }
