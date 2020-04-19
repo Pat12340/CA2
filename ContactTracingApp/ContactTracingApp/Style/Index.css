@@ -7,3 +7,7 @@
 .btn-primary{
     background-color: transparent;
 }
+    .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:active:focus, .btn-primary:focus, .btn-primary:active:hover {
+        background-color: transparent;
+    }
+
