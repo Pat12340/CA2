@@ -3,11 +3,15 @@
 @{
     ViewBag.Title = "MyContacts";
 }
+@section Style
+{
+    <link href="@Url.Content("~/Style/MyContacts.css")" rel="stylesheet" type="text/css" />
+}
 
 <h2>MyContacts</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button class="btn btn-default">@Html.ActionLink("Create New", "addNewContacts", "Home")</button>
 </p>
 <table class="table">
     <tr>
@@ -38,38 +42,39 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateMet)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PersonId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mobile)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DistanceKept)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TimeSpent)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ContactId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ContactId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ContactId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateMet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistanceKept)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeSpent)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ContactId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ContactId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ContactId })
+            </td>
+        </tr>
+    }
 
 </table>

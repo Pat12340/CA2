@@ -3,14 +3,18 @@
 @{
     ViewBag.Title = "Add New Contacts";
 }
+@section Style
+{
+    <link href="@Url.Content("~/Style/AddContact.css")" rel="stylesheet" type="text/css" />
+}
 
 <h2>My Contacts</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Add new contacts to you list.</h4>
         <hr />

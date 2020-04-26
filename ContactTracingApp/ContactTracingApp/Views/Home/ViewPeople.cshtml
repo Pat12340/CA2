@@ -3,11 +3,15 @@
 @{
     ViewBag.Title = "ViewPeople";
 }
+@section Style
+{
+    <link href="@Url.Content("~/Style/ViewPeople.css")" rel="stylesheet" type="text/css" />
+}
 
 <h2>ViewPeople</h2>
 
 <p>
-    @Html.ActionLink("Create New", "SignUp")
+    <button class="btn btn-default">@Html.ActionLink("Create New", "SignUp", "Home")</button>
 </p>
 <table class="table">
     <tr>
@@ -26,22 +30,23 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
 
-    </tr>
-}
+        </tr>
+    }
 
 </table>
