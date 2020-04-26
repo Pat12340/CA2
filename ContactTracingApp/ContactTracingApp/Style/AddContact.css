@@ -1,0 +1,9 @@
+﻿.btn-default {
+    background-color: #337ab7;
+    color: white;
+}
+
+    .btn-default:hover, .btn-default:active, .btn-default:visited, .btn-default:active:focus, .btn-default:focus, .btn-default:active:hover {
+        background-color: #337ab7;
+        color: white;
+    }

@@ -3,53 +3,60 @@
     align-items: center;
     flex-direction: column;
 }
-.links-container{
-    display:flex;
+.links-container {
+    display: flex;
     margin: 0px 10px;
+
 }
+    @media only screen and (max-width : 768px){
+        .links-container {
+            flex-direction: column;
+        }
+    }
 .button-container {
 }
 .button-sign-up {
     
 }
 .button-text{
-    font-size: 45px;
+    font-size: 30px;
 }
 .btn-primary {
-    background-color: #b4083a;
-    border-top: 6px solid #92062f;
-    border-left: 6px solid #92062f;
-    width: 200px;
-    height: 80px;
+    background-color: #337ab7;
+    width: 170px;
+    height: 60px;
+}
+.btn-default {
+    background-color: #337ab7;
 }
 a, a:hover, a:visited, a:focus, a:active, a:active:hover{
     color: white;
     text-decoration: none;
 }
-    .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:active:focus, .btn-primary:focus, .btn-primary:active:hover {
-        background-color: #b4083a;
-        border-top: 6px solid #92062f;
-        border-left: 6px solid #92062f;
-    }
+.btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:active:focus, .btn-primary:focus, .btn-primary:active:hover {
+    background-color: #337ab7;
+
+}
+.btn-default:hover, .btn-default:active, .btn-default:visited, .btn-default:active:focus, .btn-default:focus, .btn-default:active:hover {
+    background-color: #337ab7;
+}
 .links {
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0 0 10px 0 #ccc;
+    margin-bottom: 20px;
 }
 .title {
     margin: 10px 0px;
-    width: 300px;
-    font-size: 40px;
-    background-color: #b4083a;
-    border-top: 6px solid #92062f;
-    border-left: 6px solid #92062f;
+    width: 100%;
+    font-size: 30px;
     text-align: center;
-    height: 70px;
+    height: 50px;
     border-radius: 4px;
 }
 .title-text{
-    color:white;
+    color:black;
 }
 
  
