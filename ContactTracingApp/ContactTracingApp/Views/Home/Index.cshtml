@@ -20,6 +20,7 @@
 
     <div class="links-container">
         <div class="links col-md-4">
+
             <div class="title"><span class="title-text">Irish Government</span></div>
             <img src="~/Images/GovImage.png" />
             <p>For Government imposed measures, follow the link for further information. </p>
@@ -40,6 +41,12 @@
             <p><a class="btn btn-default" href="https://www.who.int/health-topics/coronavirus#tab=tab_1">WHO - Covid-19&raquo;</a></p>
         </div>
     </div>
-
+    <p>
+        Welcome: @if (ViewBag.Name != null)
+        {
+            @ViewBag.Name @:&nbsp; @ViewBag.LName
+        }
+    </p>
+<p>Date Of Birth: @ViewBag.Dob</p>
 </body>
 </html>
