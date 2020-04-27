@@ -6,16 +6,36 @@ using System.Web;
 using System.Web.Mvc;
 using static DataLibrary.BusinessLogic.PersonProcessor;
 using static DataLibrary.BusinessLogic.ContactProcessor;
+using Microsoft.AspNet.Identity;
+using System.Data.SqlClient;
+using DataLibrary.DataAccess;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ContactTracingApp.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
+        private PersonDBContext db = new PersonDBContext();
+        private ApplicationDbContext dbapp = new ApplicationDbContext();
+
         public ActionResult Index()
         {
+            if (ModelState.IsValid)
+            {
+                var currentUserId = User.Identity.GetUserId();
+                var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
+                var pOne = db.Person.FirstOrDefault(p => p.Email == user.Email);
+                ViewBag.Name = pOne.FName;
+                ViewBag.LName = pOne.LName;
+                ViewBag.Dob = pOne.Dob;
+                
+                
+            }
             return View();
         }
-
+        [Authorize(Roles ="Admin")]
         public ActionResult ViewPeople()
         {
             ViewBag.Message = "Person List";
@@ -40,7 +60,6 @@ namespace ContactTracingApp.Controllers
         public ActionResult SignUp()
         {
             ViewBag.Message = "User Sign Up";
-
             return View();
         }
         [HttpPost]
@@ -55,6 +74,7 @@ namespace ContactTracingApp.Controllers
             return View();
 
         }
+        [Authorize]
         public ActionResult addNewContacts()
         {
             ViewBag.Message = "Add a new contact.";
@@ -62,6 +82,7 @@ namespace ContactTracingApp.Controllers
             return View();
         }
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult addNewContacts(Contact model)
         {
@@ -82,7 +103,7 @@ namespace ContactTracingApp.Controllers
 
             return View();
         }
-
+        
         public ActionResult MyContacts()
         {
             ViewBag.Message = "My Contacts List";

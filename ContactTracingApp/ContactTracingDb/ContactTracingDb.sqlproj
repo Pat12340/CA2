@@ -61,7 +61,7 @@
     <Folder Include="Publish Profiles\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Paerson.sql" />
+    <Build Include="dbo\Tables\Person.sql" />
     <Build Include="dbo\Tables\Contact.sql" />
   </ItemGroup>
   <ItemGroup>

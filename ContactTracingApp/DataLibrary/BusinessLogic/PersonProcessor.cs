@@ -21,14 +21,14 @@ namespace DataLibrary.BusinessLogic
                 Email = EmailAddress,
                 Dob = dob
             };
-            string sql = @"INSERT INTO dbo.paerson(FName, LName, Phone, Email, Dob)
+            string sql = @"INSERT INTO dbo.person(FName, LName, Phone, Email, Dob)
                             values(@FName, @LName, @Phone, @Email, @Dob);";
             return SqlDataAccess.SaveData(sql, data);
         }
         public static List<PersonModel> LoadPeople()
         {
             string sql = @"select Id, FName, LName, Phone, Email, Dob
-                            from dbo.paerson;";
+                            from dbo.person;";
             return SqlDataAccess.LoadData<PersonModel>(sql);
         }
     }
