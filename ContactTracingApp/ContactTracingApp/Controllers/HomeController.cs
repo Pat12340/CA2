@@ -26,7 +26,7 @@ namespace ContactTracingApp.Controllers
             {
                 var currentUserId = User.Identity.GetUserId();
                 var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
-                var pOne = db.Person.FirstOrDefault(p => p.Email == user.Email);
+                var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
                 ViewBag.Name = pOne.FName;
                 ViewBag.LName = pOne.LName;
                 ViewBag.Dob = pOne.Dob;
@@ -40,20 +40,21 @@ namespace ContactTracingApp.Controllers
         {
             ViewBag.Message = "Person List";
 
-            var data = LoadPeople();
+            //var data = LoadPeople();
 
-            List<Person> people = new List<Person>();
-            foreach(var row in data)
-            {
-                people.Add(new Person
-                {
-                    FName = row.FName,
-                    LName = row.LName,
-                    Phone = row.Phone,
-                    Email = row.Email,
-                    Dob = row.Dob
-                });
-            }
+            //List<Person> people = new List<Person>();
+            //foreach(var row in data)
+            //{
+            //    people.Add(new Person
+            //    {
+            //        FName = row.FName,
+            //        LName = row.LName,
+            //        Phone = row.Phone,
+            //        Email = row.Email,
+            //        Dob = row.Dob
+            //    });
+            //}
+            var people = db.Persons.ToList();
             return View(people);
         }
 

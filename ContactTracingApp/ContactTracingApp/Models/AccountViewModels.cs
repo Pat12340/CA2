@@ -68,7 +68,7 @@ namespace ContactTracingApp.Models
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
-        public string Email { get; set; }
+        public new string Email { get { return base.Email; } set { base.Email = value; } }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
