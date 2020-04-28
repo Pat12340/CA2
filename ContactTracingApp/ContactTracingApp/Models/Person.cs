@@ -64,10 +64,12 @@ namespace ContactTracingApp.Models
     public class PersonDBContext : DbContext
     {
         public PersonDBContext(): base("ContacttracingDb") { }
-        public DbSet<Person> Person { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Person>().ToTable("Person");
+            modelBuilder.Entity<Contact>().ToTable("Contact");
             base.OnModelCreating(modelBuilder);
         }
     }
