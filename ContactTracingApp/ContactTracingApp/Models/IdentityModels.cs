@@ -21,8 +21,7 @@ namespace ContactTracingApp.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
-            : base("ContacttracingDb", throwIfV1Schema: false)
+        public ApplicationDbContext(): base("AuthDB")
         {
         }
 

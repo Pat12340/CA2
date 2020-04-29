@@ -18,7 +18,7 @@ namespace ContactTracingApp.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private readonly PersonDBContext _personDBContext;
+        private PersonDBContext _personDBContext;
 
         public AccountController()
         {
