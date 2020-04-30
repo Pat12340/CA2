@@ -35,6 +35,8 @@ namespace DataLibrary.BusinessLogic
 
         public static List<ContactModel> LoadContact()
         {
+
+
             string sql = @"select Id, ContactId, FirstName, Lastname, DateMet, PersonId, Mobile, Email, DistanceKept, TimeSpent
                         from dbo.Contact;";
 

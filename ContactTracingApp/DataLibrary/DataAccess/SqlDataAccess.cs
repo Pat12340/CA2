@@ -12,7 +12,7 @@ namespace DataLibrary.DataAccess
 {
     public static class SqlDataAccess
     {
-        public static string GetConnectionString(string connectionName="ContactTracingDb")
+        public static string GetConnectionString(string connectionName= "ContactTracingDB")
         {
             return ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
         }

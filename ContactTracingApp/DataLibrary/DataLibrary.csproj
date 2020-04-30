@@ -55,6 +55,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ContactTracingDb\ContactTracingDb.sqlproj">
+      <Project>{c193fda3-22cf-4e6f-80b5-e669bc972521}</Project>
+      <Name>ContactTracingDb</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -27,15 +27,12 @@ namespace ContactTracingApp.Controllers
                 var currentUserId = User.Identity.GetUserId();
                 var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
                 var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
-                ViewBag.Name = pOne.FName;
-                ViewBag.LName = pOne.LName;
-                ViewBag.Dob = pOne.Dob;
-                
-                
             }
             return View();
         }
-        [Authorize(Roles ="Admin")]
+
+
+        //[Authorize(Roles ="Admin")]
         public ActionResult ViewPeople()
         {
             ViewBag.Message = "Person List";
@@ -54,6 +51,7 @@ namespace ContactTracingApp.Controllers
             //        Dob = row.Dob
             //    });
             //}
+
             var people = db.Persons.ToList();
             return View(people);
         }
@@ -63,6 +61,8 @@ namespace ContactTracingApp.Controllers
             ViewBag.Message = "User Sign Up";
             return View();
         }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult SignUp(Person model)
@@ -75,6 +75,8 @@ namespace ContactTracingApp.Controllers
             return View();
 
         }
+
+
         [Authorize]
         public ActionResult addNewContacts()
         {
@@ -82,6 +84,8 @@ namespace ContactTracingApp.Controllers
 
             return View();
         }
+
+
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
@@ -108,6 +112,12 @@ namespace ContactTracingApp.Controllers
         public ActionResult MyContacts()
         {
             ViewBag.Message = "My Contacts List";
+            
+            // Implement below to replace current method. 
+            //Currently below is not looping.
+
+            /*var contact = db.Contacts.ToList();
+            return View(contact);*/
 
             var data = LoadContact();
 

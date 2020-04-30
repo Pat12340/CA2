@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<ContactTracingApp.Models.Contact>
 
 @{
-    ViewBag.Title = "MyContacts";
+    ViewBag.Title = "My Contacts";
 }
 @section Style
 {
     <link href="@Url.Content("~/Style/MyContacts.css")" rel="stylesheet" type="text/css" />
 }
 
-<h2>MyContacts</h2>
+<h2>My Contacts</h2>
 
 <p>
     <button class="btn btn-default">@Html.ActionLink("Create New", "addNewContacts", "Home")</button>
@@ -71,7 +71,6 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ContactId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ContactId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ContactId })
             </td>
         </tr>
