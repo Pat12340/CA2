@@ -227,6 +227,11 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Properties\PublishProfiles\ContactTracingApp - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ContactTracingApp - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\ContactTracingApp2020KP - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ContactTracingApp2020KP - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\ContactTracingAppKP - Web Deploy.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

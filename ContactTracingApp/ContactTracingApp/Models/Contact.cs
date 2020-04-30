@@ -12,6 +12,8 @@ namespace ContactTracingApp.Models
 
         // This should be generated when its submitted 
         [Key]
+        public int Id { get; set; }
+
         public int ContactId { get; set; }
 
 
