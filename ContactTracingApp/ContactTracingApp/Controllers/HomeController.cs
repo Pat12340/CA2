@@ -27,6 +27,7 @@ namespace ContactTracingApp.Controllers
                 var currentUserId = User.Identity.GetUserId();
                 var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
                 var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
+                var currentPerson = pOne.id;
             }
             return View();
         }
@@ -36,22 +37,6 @@ namespace ContactTracingApp.Controllers
         public ActionResult ViewPeople()
         {
             ViewBag.Message = "Person List";
-
-            //var data = LoadPeople();
-
-            //List<Person> people = new List<Person>();
-            //foreach(var row in data)
-            //{
-            //    people.Add(new Person
-            //    {
-            //        FName = row.FName,
-            //        LName = row.LName,
-            //        Phone = row.Phone,
-            //        Email = row.Email,
-            //        Dob = row.Dob
-            //    });
-            //}
-
             var people = db.Persons.ToList();
             return View(people);
         }
@@ -93,54 +78,51 @@ namespace ContactTracingApp.Controllers
         {
             if (ModelState.IsValid)
             {
-               int recordsCreated = CreateContact(model.ContactId,
-                    model.FirstName, 
-                    model.LastName, 
-                    model.DateMet, 
-                    model.PersonId, 
-                    model.Mobile, 
-                    model.Email, 
-                    model.DistanceKept, 
-                    model.TimeSpent);
+                Random random = new Random();
+                int num = random.Next(1000000);
+
+                var currentUserId = User.Identity.GetUserId();
+                var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
+                var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
+                var personId = pOne.id;
+
+                var contact = new Contact
+                {
+                    Id = num,
+                    ContactId = num,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    DateMet = model.DateMet,
+                    PersonId = personId,
+                    Mobile = model.Mobile,
+                    Email = model.Email,
+                    DistanceKept = model.DistanceKept,
+                    TimeSpent = model.TimeSpent
+                };
+                var contactEntity = db.Contacts.Add(contact);
+                db.SaveChanges();
 
                 return RedirectToAction("MyContacts");
             }
-
             return View();
         }
-        
+
         public ActionResult MyContacts()
         {
             ViewBag.Message = "My Contacts List";
-            
+
             // Implement below to replace current method. 
             //Currently below is not looping.
 
-            /*var contact = db.Contacts.ToList();
-            return View(contact);*/
+            var currentUserId = User.Identity.GetUserId();
+            var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
+            var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
+            var personId = pOne.id;
 
-            var data = LoadContact();
+            var contact = db.Contacts.ToList().Where(c => c.PersonId == personId);
+            
+            return View(contact);
 
-            List<Contact> contacts = new List<Contact>();
-            foreach(var row in data)
-            {
-                contacts.Add(new Contact
-                {
-                    ContactId = row.ContactId,
-                    FirstName = row.FirstName,
-                    LastName = row.LastName,
-                    PersonId = row.PersonId,
-                    DateMet = row.DateMet,
-                    Mobile = row.Mobile,
-                    Email = row.Email,
-                    DistanceKept = row.DistanceKept,
-                    TimeSpent = row.TimeSpent
-                });
-            }
-
-            return View(contacts);
         }
-
-
     }
 }

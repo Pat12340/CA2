@@ -24,7 +24,7 @@ namespace ContactTracingApp.Models
         public string LName { get; set; }
 
         [Required]
-        [Range(1, 1000000000, ErrorMessage ="The Phone number must be at least 9 digits.")]
+        [Range(1000000, 999999999999999, ErrorMessage ="The Phone number must be at least 9 digits.")]
         public int Phone { get; set; }
 
         [Required]
@@ -43,6 +43,8 @@ namespace ContactTracingApp.Models
         public Nullable<System.DateTime> Dob { get; set; }
 
     }
+
+
     public class PersonDBContext : DbContext
     {
         public PersonDBContext(): base("ContactTracingDB") { }
