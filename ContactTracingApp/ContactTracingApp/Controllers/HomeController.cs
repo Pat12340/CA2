@@ -14,7 +14,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ContactTracingApp.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         private PersonDBContext db = new PersonDBContext();
@@ -24,23 +23,25 @@ namespace ContactTracingApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var currentUserId = User.Identity.GetUserId();
-                var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
-                var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
-                var currentPerson = pOne.id;
+               // var currentUserId = User.Identity.GetUserId();
+               // var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
+               // var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
+               // var currentPerson = pOne.id;
             }
             return View();
         }
 
-
+        [Authorize]
         //[Authorize(Roles ="Admin")]
         public ActionResult ViewPeople()
         {
+            
             ViewBag.Message = "Person List";
             var people = db.Persons.ToList();
             return View(people);
-        }
 
+        }
+/*
         public ActionResult SignUp()
         {
             ViewBag.Message = "User Sign Up";
@@ -58,10 +59,9 @@ namespace ContactTracingApp.Controllers
                 return RedirectToAction("Index");
             }
             return View();
-
         }
 
-
+    */
         [Authorize]
         public ActionResult addNewContacts()
         {
@@ -107,12 +107,10 @@ namespace ContactTracingApp.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult MyContacts()
         {
             ViewBag.Message = "My Contacts List";
-
-            // Implement below to replace current method. 
-            //Currently below is not looping.
 
             var currentUserId = User.Identity.GetUserId();
             var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
@@ -120,9 +118,52 @@ namespace ContactTracingApp.Controllers
             var personId = pOne.id;
 
             var contact = db.Contacts.ToList().Where(c => c.PersonId == personId);
-            
+
             return View(contact);
 
+        }
+
+
+
+        [Authorize]
+        public ActionResult EditContacts()
+        {
+            ViewBag.Message = "Edit Contact.";
+
+            return View();
+        }
+
+
+        [HttpPut]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditContacts(Contact model)
+        {
+            if (ModelState.IsValid)
+            {
+                var currentUserId = User.Identity.GetUserId();
+                var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
+                var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
+                var personId = pOne.id;
+                var contact1 = db.Contacts.SingleOrDefault(c => c.ContactId == personId);
+
+                var contact = new Contact
+                {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    DateMet = model.DateMet,
+                    PersonId = personId,
+                    Mobile = model.Mobile,
+                    Email = model.Email,
+                    DistanceKept = model.DistanceKept,
+                    TimeSpent = model.TimeSpent
+                };
+                var contactEntity = db.Contacts.Add(contact);
+                db.SaveChanges();
+
+                return RedirectToAction("MyContacts");
+            }
+            return View();
         }
     }
 }

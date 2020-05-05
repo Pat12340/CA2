@@ -1,24 +1,17 @@
 ﻿@model ContactTracingApp.Models.Contact
 
-@{
-    ViewBag.Title = "Add New Contacts";
-}
-@section Style
-{
-    <link href="@Url.Content("~/Style/AddContact.css")" rel="stylesheet" type="text/css" />
-}
-
-<h2>My Contacts</h2>
-
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
-        <h4>Add new contacts to you list.</h4>
+        <h4>Contact</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+
         <div class="form-group">
             @Html.LabelFor(model => model.DateMet, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -77,11 +70,15 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
+
+<div>
+    @Html.ActionLink("Back to My Contacts", "MyContacts")
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

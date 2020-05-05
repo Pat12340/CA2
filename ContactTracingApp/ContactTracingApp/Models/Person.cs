@@ -56,5 +56,7 @@ namespace ContactTracingApp.Models
             modelBuilder.Entity<Contact>().ToTable("Contact");
             base.OnModelCreating(modelBuilder);
         }
+
+        public System.Data.Entity.DbSet<DataLibrary.Models.ContactModel> ContactModels { get; set; }
     }
 }

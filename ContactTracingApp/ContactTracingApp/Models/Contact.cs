@@ -18,10 +18,9 @@ namespace ContactTracingApp.Models
 
 
         // Add a date picker field 
-        [Display(Name = "When was the last date you met?")]
+        [Display(Name = "Date you last met")]
         public DateTime DateMet { get; set; }
 
-        // Person Id - We should generate this depending on who created it
         public int PersonId { get; set; } 
 
         [Display(Name = "First Name")]
@@ -42,7 +41,7 @@ namespace ContactTracingApp.Models
         public string Email { get; set; }
 
         // Add validation for negative for both below
-        [Display(Name = "Distance Kept Apart - Approx Meters")]
+        [Display(Name = "Distance Apart (M)")]
         public int DistanceKept { get; set; }
 
         [Display(Name = "Time Spent Together")]
