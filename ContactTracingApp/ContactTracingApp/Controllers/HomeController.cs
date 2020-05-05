@@ -35,17 +35,11 @@ namespace ContactTracingApp.Controllers
         //[Authorize(Roles ="Admin")]
         public ActionResult ViewPeople()
         {
-            ViewBag.Message = "My Details" +
-                "";
+            
+            ViewBag.Message = "Person List";
+            var people = db.Persons.ToList();
+            return View(people);
 
-            var currentUserId = User.Identity.GetUserId();
-            var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
-            var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
-            var personId = pOne.id;
-
-            var person = db.Persons.ToList().Where(c => c.id == personId);
-
-            return View(person);
         }
 /*
         public ActionResult SignUp()
