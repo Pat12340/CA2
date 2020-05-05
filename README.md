@@ -3,6 +3,7 @@
 Contact tracing web app
 
 PROJECT AIM & SCOPE
+
 An effective way of responding to a pandemic, such as COVID, is knowing who you have been recently in contact with and being able to inform them that they may have it if you contract the virus.
 
 Being able to quickly recall who you have been in contact with allows for rapid self-isolation response times, preventing the spread of the virus/disease.
