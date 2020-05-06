@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 using DataLibrary.DataAccess;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Net;
+using System.Data.Entity;
 
 namespace ContactTracingApp.Controllers
 {
@@ -60,7 +62,6 @@ namespace ContactTracingApp.Controllers
             }
             return View();
         }
-
     */
         [Authorize]
         public ActionResult addNewContacts()
@@ -126,39 +127,37 @@ namespace ContactTracingApp.Controllers
 
 
         [Authorize]
-        public ActionResult EditContacts()
+        public ActionResult EditContacts(int? id)
         {
             ViewBag.Message = "Edit Contact.";
-
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
+        
         }
 
 
-        [HttpPut]
+        [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult EditContacts(Contact model)
+        public ActionResult EditContacts([Bind(Include = "Id,ContactId,FirstName,LastName,DateMet,PersonId,Mobile,Email,DistanceKept,TimeSpent")] Contact contact)
         {
             if (ModelState.IsValid)
             {
                 var currentUserId = User.Identity.GetUserId();
                 var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
                 var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
-                var personId = pOne.id;
-                var contact1 = db.Contacts.SingleOrDefault(c => c.ContactId == personId);
+                var personId1 = pOne.id;
 
-                var contact = new Contact
-                {
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    DateMet = model.DateMet,
-                    PersonId = personId,
-                    Mobile = model.Mobile,
-                    Email = model.Email,
-                    DistanceKept = model.DistanceKept,
-                    TimeSpent = model.TimeSpent
-                };
-                var contactEntity = db.Contacts.Add(contact);
+                contact.PersonId = personId1;
+                db.Entry(contact).State = EntityState.Modified;
                 db.SaveChanges();
 
                 return RedirectToAction("MyContacts");
