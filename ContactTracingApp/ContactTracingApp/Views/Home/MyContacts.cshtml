@@ -70,8 +70,8 @@
                 @Html.DisplayFor(modelItem => item.TimeSpent)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditContacts", new { id = item.ContactId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ContactId })
+                @Html.ActionLink("Edit", "EditContacts", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
         </tr>
     }
