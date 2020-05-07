@@ -52,6 +52,14 @@ namespace ContactTracingApp.Controllers
             return newcontact;
         }
 
+        [HttpGet]
+        [Route("GetAllPeople")]
+        public List<Person> GetPeople()
+        {
+            var people = db.Persons.ToList();
+            return people;
+        }
+
     }
 
 }

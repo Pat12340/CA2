@@ -25,10 +25,6 @@ namespace ContactTracingApp.Controllers
         {
             if (ModelState.IsValid)
             {
-               // var currentUserId = User.Identity.GetUserId();
-               // var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
-               // var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
-               // var currentPerson = pOne.id;
             }
             return View();
         }
@@ -53,27 +49,7 @@ namespace ContactTracingApp.Controllers
             var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
             return View(pOne);
         }
-        /*
-                public ActionResult SignUp()
-                {
-                    ViewBag.Message = "User Sign Up";
-                    return View();
-                }
-
-
-                [HttpPost]
-                [ValidateAntiForgeryToken]
-                public ActionResult SignUp(Person model)
-                {
-                    if (ModelState.IsValid)
-                    {
-                        int recordCreated = CreatePerson(model.FName, model.LName, model.Phone, model.Email, model.Dob);
-                        return RedirectToAction("Index");
-                    }
-                    return View();
-                }
-
-            */
+ 
         [Authorize]
         public ActionResult addNewContacts()
         {

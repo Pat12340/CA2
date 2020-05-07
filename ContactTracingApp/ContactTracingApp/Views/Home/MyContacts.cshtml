@@ -18,9 +18,6 @@
             @Html.DisplayNameFor(model => model.DateMet)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PersonId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
         <th>
@@ -48,9 +45,6 @@
                 @item.DateMet.ToString("dd MMM yyyy")
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PersonId)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
@@ -63,14 +57,14 @@
                 <div class="email">@Html.DisplayFor(modelItem => item.Email)</div>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DistanceKept)
+                @Html.DisplayFor(modelItem => item.DistanceKept) Meters
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TimeSpent)
+                @Html.DisplayFor(modelItem => item.TimeSpent) Minutes
             </td>
-            <td>
-                @Html.ActionLink("Edit", "EditContacts", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            <td >
+            <td class="btn btn-default button-create" >
+                @Html.ActionLink("Edit", "EditContacts", new { id = item.Id })
             </td>
         </tr>
     }
