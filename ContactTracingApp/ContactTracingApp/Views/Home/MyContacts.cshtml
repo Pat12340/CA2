@@ -10,9 +10,8 @@
 
 <h2>My Contacts</h2>
 
-<p>
-    <button class="btn btn-default">@Html.ActionLink("Create New", "addNewContacts", "Home")</button>
-</p>
+
+<p><a class="btn btn-default button-create" href="@Url.Action("addNewContacts", "Home")">Create New</a></p>
 <table class="table">
     <tr>
         <th>
@@ -61,7 +60,7 @@
                 @Html.DisplayFor(modelItem => item.Mobile)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                <div class="email">@Html.DisplayFor(modelItem => item.Email)</div>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DistanceKept)

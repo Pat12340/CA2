@@ -1,19 +1,28 @@
-﻿.button-text {
-    font-size: 30px;
-}
-.btn-default {
+﻿.btn-default {
     background-color: #609DD2;
-    color: white;
-    width: 140px;
-    height: 40px;
 }
 
-    .btn-default:hover, .btn-default:active, .btn-default:visited, .btn-default:active:focus, .btn-default:focus, .btn-default:active:hover {
-        background-color: #609DD2;
-        color: white;
-    }
+a, a:hover, a:visited, a:focus, a:active, a:active:hover {
+    color: #E6F4F1;
+    text-decoration: none;
+}
+.btn-default:hover, .btn-default:active {
+    background-color: #88C7FE;
+    color: #E6F4F1;
+}
 
-a {
-    color: black;
+    .btn-default:active:focus, .btn-default:focus, .btn-default:active:hover {
+        color: #E6F4F1;
+        background-color: #002C56;
+        outline: 2px dotted #895200;
+        outline-offset: -6px;
+    }
+.button-create {
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+}
+.email > a, .email > a:hover, .email > a:visited, .email > a:focus, .email > a:active, .email > a:active:hover {
+    color: #337ab7;
     text-decoration: none;
 }

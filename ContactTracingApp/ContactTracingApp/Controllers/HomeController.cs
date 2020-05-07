@@ -166,17 +166,6 @@ namespace ContactTracingApp.Controllers
                 var user = dbapp.Users.FirstOrDefault(p => p.Id == currentUserId);
                 var pOne = db.Persons.FirstOrDefault(p => p.Email == user.Email);
                 var personId1 = pOne.id;
-                var contact = new Contact
-                {
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    DateMet = model.DateMet,
-                    PersonId = personId,
-                    Mobile = model.Mobile,
-                    Email = model.Email,
-                    DistanceKept = model.DistanceKept,
-                    TimeSpent = model.TimeSpent
-                };
                 contact.PersonId = personId1;
                 db.Entry(contact).State = EntityState.Modified;
                 db.SaveChanges();

@@ -1,6 +1,8 @@
 ﻿
 
-
+ul {
+    list-style: none;
+}
 .navbar-inverse {
     border: none !important;
     background-color: #609DD2 !important;
@@ -14,8 +16,8 @@
         .navbar-inverse .navbar-nav > li > a:hover {
             background: #002C56;
             border-radius: 2px;
-            height: 80%;
             box-shadow: 0 -1px 0 #002C56 inset, 0 -3px 0 #895200 inset;
+
         }
         nav-container > .navbar-inverse .navbar-nav > li > a {
             color: white;

@@ -1,8 +1,15 @@
-﻿.btn-default {
+﻿input.btn-default {
     background-color: #609DD2;
-    color: white;
 }
-    .btn-default:hover, .btn-default:active, .btn-default:visited, .btn-default:active:focus, .btn-default:focus, .btn-default:active:hover {
-        background-color: #609DD2;
-        color: white;
+
+input.btn-default:hover, .btn-default:active {
+    background-color: #88C7FE;
+    color: #E6F4F1;
+}
+
+    input.btn-default:active:focus, .btn-default:focus, .btn-default:active:hover {
+        color: #E6F4F1;
+        background-color: #002C56;
+        outline: 2px dotted #895200;
+        outline-offset: -6px;
     }

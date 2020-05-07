@@ -14,10 +14,10 @@
         <h1>Contact Tracing</h1>
         <p class="lead">Create a profile and begin adding Contacts. </p>
         <div class="button-container">
-            <button class="button-sign-up btn btn-primary btn-lg"><span class="button-text">@Html.ActionLink("Register", "MyContacts", "Home")</span></button>
+            <p><a class="btn btn-default button-register" href="@Url.Action("Register", "Account")">Register&raquo;</a></p>
         </div>
     </div>
-
+    
     <div class="links-container">
         <div class="links col-md-4">
 
@@ -41,12 +41,6 @@
             <p><a class="btn btn-default" href="https://www.who.int/health-topics/coronavirus#tab=tab_1">WHO - Covid-19&raquo;</a></p>
         </div>
     </div>
-    <p>
-        Welcome: @if (ViewBag.Name != null)
-        {
-            @ViewBag.Name @:&nbsp; @ViewBag.LName
-        }
-    </p>
-<p>Date Of Birth: @ViewBag.Dob</p>
+
 </body>
 </html>
