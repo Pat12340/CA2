@@ -1,0 +1,53 @@
+﻿@model ContactTracingApp.Models.Person
+
+@{
+    ViewBag.Title = "My Details";
+}
+    <h2>My Details</h2>
+
+    <div>
+        <h3>Account Type: </h3> @{ if (User.IsInRole("Admin"))
+            { <h3>Admin</h3>}
+            else
+            {<h3>User</h3>} }
+        <hr />
+        <table class="table">
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dob)
+                </th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.FName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.LName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Email)
+                </td>
+                <td>
+                    @Html.ValueFor(model => model.Dob, "{0:dd/MM/yyyy}")
+                </td>
+
+            </tr>
+        </table>
+    </div>

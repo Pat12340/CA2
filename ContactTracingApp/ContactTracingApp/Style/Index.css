@@ -19,6 +19,7 @@ body {
             flex-direction: column;
         }
     }
+
 .button-container {
 }
 .button-sign-up {
@@ -36,23 +37,32 @@ body {
     background-color: #609DD2;
 }
 a, a:hover, a:visited, a:focus, a:active, a:active:hover {
-    color: #E3F4F3;
+    color: #E6F4F1;
     text-decoration: none;
 }
 .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:active:focus, .btn-primary:focus, .btn-primary:active:hover {
-    background-color: #609DD2;
+    background-color: #88C7FE;
+    color: #E6F4F1;
 }
-.btn-default:hover, .btn-default:active, .btn-default:visited, .btn-default:active:focus, .btn-default:focus, .btn-default:active:hover {
-    background-color: #609DD2;
+.btn-default:hover, .btn-default:active {
+    background-color: #88C7FE;
+    color: #E6F4F1;
 }
-.links {
-    display: flex;
-    border-radius: 4px;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 0 10px 0 #ccc;
-    margin-bottom: 20px;
-}
+    .btn-default:active:focus, .btn-default:focus, .btn-default:active:hover {
+        color: #E6F4F1;
+        background-color: #002C56;
+        outline: 2px dotted #895200;
+        outline-offset: -6px;
+        
+    }
+    .links {
+        display: flex;
+        border-radius: 10px;
+        margin: 0px 20px 20px 20px;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 0 10px 0 #ccc;
+    }
 .title {
     margin: 10px 0px;
     width: 100%;
@@ -64,5 +74,9 @@ a, a:hover, a:visited, a:focus, a:active, a:active:hover {
 .title-text{
     color:black;
 }
-
+.button-register {
+    width: 170px;
+    height: 60px;
+    font-size: 30px;
+}
  

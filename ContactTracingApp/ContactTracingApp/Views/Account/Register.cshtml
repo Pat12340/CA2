@@ -2,6 +2,10 @@
 @{
     ViewBag.Title = "Register";
 }
+@section Style
+{
+    <link href="@Url.Content("~/Style/Register.css")" rel="stylesheet" type="text/css" />
+}
 
 <h2>@ViewBag.Title.</h2>
 
@@ -9,14 +13,7 @@
 {
     @Html.AntiForgeryToken()
     <h4>Create a new account.</h4>
-    <hr />
-
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-
-
-
-
-
+   
     <hr />
 
     <div class="form-group">

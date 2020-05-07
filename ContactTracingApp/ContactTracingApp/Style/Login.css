@@ -1,5 +1,4 @@
-﻿
-.btn-default {
+﻿.btn-default {
     background-color: #609DD2;
     color: #E6F4F1;
 }
@@ -25,4 +24,8 @@ a, a:hover, a:visited, a:focus, a:active, a:active:hover {
     width: 120px;
     height: 40px;
     font-size: 18px;
+}
+.reg-link > a, .reg-link > a:hover, .reg-link > a:visited, .reg-link > a:focus, .reg-link > a:active, .reg-link > a:active:hover {
+    color: #337ab7;
+    text-decoration: none;
 }

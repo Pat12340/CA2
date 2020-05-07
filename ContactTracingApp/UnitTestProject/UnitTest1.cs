@@ -11,7 +11,7 @@ namespace UnitTestProject
         public void TestMethod1()
         {
             Contact contact = new Contact();
-            contact.PersonId = null;
+            //contact.PersonId = null;
 
         }
     }
